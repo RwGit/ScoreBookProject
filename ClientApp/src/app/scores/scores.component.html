@@ -1,0 +1,15 @@
+<p>scores works!</p>
+
+<table class="table table-bordered">
+    <thead>
+        <th>Student Name</th>
+        <th>Score</th>
+    </thead>
+    <tbody>
+        <tr *ngFor='let student of students'>
+            <td> {{ student.firstName + ' ' + student.lastName}} </td>
+        </tr>
+    </tbody>
+
+</table>
+
