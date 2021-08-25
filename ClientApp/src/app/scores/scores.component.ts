@@ -42,11 +42,6 @@ export class ScoresComponent implements OnInit, OnDestroy{
     console.log('orig', this.students);
 
     var changedScores: IScore[] = [];
-    // for(var i=0;i<this.studentsChanged.length;i++){
-    //   if(this.studentsChanged[i].scores[0].score != this.students[i].scores[0].score){
-    //     changedScores.push(this.studentsChanged[i].scores[0]);
-    //   }
-    // }
 
     this.studentsChanged.forEach((sc, i) => {
       if (sc.scores[0].score != this.students[i].scores[0].score) {
