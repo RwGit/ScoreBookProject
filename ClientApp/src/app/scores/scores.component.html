@@ -1,15 +1,43 @@
-<p>scores works!</p>
-
-<table class="table table-bordered">
-    <thead>
-        <th>Student Name</th>
-        <th>Score</th>
-    </thead>
-    <tbody>
-        <tr *ngFor='let student of students'>
-            <td> {{ student.firstName + ' ' + student.lastName}} </td>
-        </tr>
-    </tbody>
-
-</table>
-
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+        <div *ngIf="showAlert" class="alert alert-primary alert-dismissible fade show" role="alert">
+            <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Scores have been Updated!</strong>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-sm-5">
+        <div class="card" style="margin-top: 1rem">
+            <div class="card-body">
+                <table class="table table-hover table-light" style="border-collapse: collapse;">
+                    <thead style="color:#414142;">
+                        <th class="col-sm-4">Student Name</th>
+                        <th class="col-sm-1">Score</th>
+                    </thead>
+                    <tbody style="font-weight: 575;">
+                        <tr *ngFor='let student of studentsChanged'>
+                            <td>{{ student.firstName + ' ' + student.lastName}}</td>
+                            <td>
+                                <input class="form-control" type='number' [(ngModel)]='student.scores[0].score'>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot style="border-top: 2px solid #dee2e6;">
+                        <tr>
+                            <td style="color:#414142;; font-weight: 575">Average Score</td>
+                            <td>{{ averageScore }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row justify-content-center">
+                    <button type="button" class="btn btn-primary" (click)='updateScores()'>
+                        Update
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

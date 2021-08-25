@@ -78,34 +78,34 @@ namespace ScoreBookProject.Controllers
         // PUT: api/Students/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutScore(int id, Scores score)
-        {
-            if (id != score.Id)
-            {
-                return BadRequest();
-            }
+        //[HttpPut]
+        //public async Task<IActionResult> PutScore(int id, Scores score)
+        //{
+        //    if (id != score.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            _context.Entry(score).State = EntityState.Modified;
+        //    _context.Entry(score).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!StudentExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         //// POST: api/Students
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for

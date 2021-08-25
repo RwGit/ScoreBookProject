@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError,tap } from 'rxjs/operators';
+import { IScore } from './scores/score';
 import { IStudent } from './scores/student';
 
 @Injectable({
@@ -14,7 +15,13 @@ export class StudentScoresService {
   getStudentsAndScores(): Observable<IStudent[]>{
     return this.http.get<IStudent[]>(this.baseUrl + 'api/Students')
     .pipe(
-      tap(data => console.log(JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
+
+  updateScores(scores: IScore[]) {
+    return this.http.put(this.baseUrl + 'api/Scores',scores)
+    .pipe(
       catchError(this.handleError)
     );
   }
